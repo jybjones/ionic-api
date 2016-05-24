@@ -1,0 +1,27 @@
+<ion-navbar secondary *navbar>
+ <ion-title>
+    <img src = "images/kiosk-logo.svg" class="logo" />
+  </ion-title>
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="#person of people">
+    <button ion-item>
+      <ion-avatar item-left>
+        <img src ="{{person.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>
+        {{person.name.first}} {{person.name.last}}</h2>
+        <p>{{person.email}}</p>
+      </button>
+
+      <ion-item-options>
+        <button light (click)="renameChecklist(checklist)"><ion-icon name="clipboard"></ion-icon> Edit</button>
+        <button danger (click)="removeChecklist(checklist)"><ion-icon name="trash"></ion-icon> Delete</button>
+      </ion-item-options>
+
+      </ion-item-sliding>
+
+  </ion-list>
+</ion-content>
