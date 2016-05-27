@@ -14,8 +14,8 @@ export class LoginPage {
   constructor(public nav: NavController) {
   	this.nav = nav;
 
-  }
-  goToCheckin(){
+  }goToCheckin(){
   		this.nav.push(CheckinPage);
   	}
+  
 }

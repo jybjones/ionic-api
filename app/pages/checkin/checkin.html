@@ -4,7 +4,11 @@
   </ion-title>
 </ion-navbar>
 
-<ion-content>
+<ion-content padding class="checkin">
+<p><strong>8am</strong><span class="statusRight"><strong>127</strong> Booked | <strong>56</strong>Checked-In</span></p>
+
+<button light (click)="goToDetail()" style="margin-top:20px;">Details here <ion-icon [name]="myIcon"></ion-icon></button>
+
   <ion-list>
     <ion-item-sliding *ngFor="#person of people">
     <button ion-item>
@@ -12,16 +16,18 @@
         <img src ="{{person.picture.thumbnail}}">
       </ion-avatar>
       <h2>
-        {{person.name.first}} {{person.name.last}}</h2>
-        <p>{{person.email}}</p>
+        {{person.name.first}} {{person.name.last}}</h2><button light (click)="goToDetail()" style="margin-top:20px;">Details here <ion-icon [name]="myIcon"></ion-icon></button>
+        <!-- <p>{{person.email}}</p> -->
       </button>
 
       <ion-item-options>
-        <button light (click)="renameChecklist(checklist)"><ion-icon name="clipboard"></ion-icon> Edit</button>
+        <!-- <button light (click)="renameChecklist(checklist)"><ion-icon name="clipboard"></ion-icon> Edit</button> -->
+         <button light (click)="renameChecklist(checklist)"><ion-icon name="clipboard"></ion-icon> Edit</button>
         <button danger (click)="removeChecklist(checklist)"><ion-icon name="trash"></ion-icon> Delete</button>
       </ion-item-options>
 
       </ion-item-sliding>
 
   </ion-list>
+  
 </ion-content>

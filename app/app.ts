@@ -2,6 +2,7 @@ import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {CheckinPage} from './pages/checkin/checkin';
 import {LoginPage} from './pages/login/login';
+import {PatientDetailPage} from './pages/patient-detail/patient-detail';
 
 
 @App({
