@@ -11,20 +11,14 @@ import {PeopleService} from '../../providers/people-service/people-service';
   templateUrl: 'build/pages/patient-detail/patient-detail.html',
   providers: [PeopleService]
 })
+
 export class PatientDetailPage {
-	public people: any;
-
-  constructor(public nav: NavController, public peopleService: PeopleService, navParams: NavParams){
-    this.loadPeople();
-    this.nav = nav;
-
-  }
-
-  loadPeople(){
-    this.peopleService.load()
-    .then(data => {
-      this.people = data;
-    });
-  }
+   patient: any;
+   constructor(public nav: NavController, public navParams: NavParams, public peopleService: PeopleService) {
+   	// If we navigated to this page, we will have an item available as a nav param
+   	this.patient = navParams.get('patient');
+   	this.peopleService = peopleService;
+   }
 
 }
+

@@ -9,22 +9,23 @@ import {PatientDetailPage} from '../patient-detail/patient-detail';
 
 //dd a constructor to our page, create a people property, import the PeopleService, and assign the PeopleService to a property of the class.
 export class CheckinPage {
-	public people: any;
+	patients: any[];
 
   constructor(public nav: NavController, public peopleService: PeopleService, navParams: NavParams){
-    this.loadPeople();
+    this.peopleService = peopleService;
+    this.peopleService.findAll().then(data => { this.patients = data});
     this.nav = nav;
 
   }
 
-  loadPeople(){
-    this.peopleService.load()
-    .then(data => {
-      this.people = data;
+  search(event, key) {
+    this.peopleService.findByName(event.target.value).then(patients => this.patients = patients);
+  }
+
+  itemTapped(event, patient) {
+    this.nav.push(PatientDetailPage, {
+      patient: patient
     });
   }
-  goToDetail(){
-      this.nav.push(PatientDetailPage);
-    }
-
+ 
 }
